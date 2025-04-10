@@ -1,0 +1,37 @@
+.slider {
+  width: 100%;
+  height: auto;
+}
+
+img {
+  width: auto;
+  height: 500px;
+}
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+  img {
+    height: 250px;
+  }
+}
+
+.custom-caption {
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff; /* White text */
+  max-width: 80%;
+  margin: 0 auto;
+  font-family: "Georgia", serif;
+}
+
+.custom-caption p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.custom-caption h3 {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
