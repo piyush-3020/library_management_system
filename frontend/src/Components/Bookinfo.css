@@ -1,0 +1,102 @@
+/* General body styling for background */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #f0f2f5, #aca6a0);
+    min-height: 100vh;
+  }
+  
+  /* Main book container */
+  .book-container {
+    display: flex;
+    gap: 40px;
+    padding: 100px 60px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: whitesmoke;
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    min-height: 80vh;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+  }
+  
+  /* Book image styling */
+  .book-image {
+    width: 320px;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .book-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Book details text */
+  .book-details {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .book-title {
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: #1f2937;
+    font-weight: 700;
+    border-bottom: 2px solid #6366f1;
+    display: inline-block;
+    padding-bottom: 6px;
+  }
+  
+  .book-info {
+    font-size: 18px;
+    margin-bottom: 14px;
+    color: #374151;
+  }
+  
+  .book-info strong {
+    color: #111827;
+  }
+  
+  .book-info:last-of-type {
+    font-weight: bold;
+    color: #9fc2b6;
+  }
+  
+  .book-description {
+    margin-top: 24px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #202a39;
+    text-align: justify;
+  }
+  
+  .issued-section {
+    margin-top: 16px;
+    font-size: 18px;
+    color: #374151;
+  }
+  
+  .issued-list {
+    list-style: disc;
+    margin-left: 20px;
+    margin-top: 6px;
+    color: #1f2937;
+  }
+  
+  .no-issued {
+    margin-top: 6px;
+    font-style: italic;
+    color: #6b7280;
+  }
+
+  .book-author {
+    font-size: 20px;
+    margin-bottom: 14px;
+    color: #334155;
+  }

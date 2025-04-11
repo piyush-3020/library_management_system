@@ -15,7 +15,9 @@ function AddBook() {
     const [author, setAuthor] = useState("")
     const [bookCountAvailable, setBookCountAvailable] = useState(null)
     const [language, setLanguage] = useState("")
+    const [description,setdescription] = useState("")
     const [publisher, setPublisher] = useState("")
+    const [photourl,setphotourl] = useState("")
     const [allCategories, setAllCategories] = useState([])
     const [selectedCategories, setSelectedCategories] = useState([])
     const [recentAddedBooks, setRecentAddedBooks] = useState([])
@@ -48,10 +50,14 @@ function AddBook() {
             author: author,
             bookCountAvailable: bookCountAvailable,
             language: language,
+            description:description,
+            photourl:photourl,
             publisher: publisher,
             categories: selectedCategories,
             isAdmin: user.isAdmin
         }
+
+        console.log(BookData);
         try {
             const response = await axios.post(API_URL + "api/books/addbook", BookData)
             if (recentAddedBooks.length >= 5) {
@@ -63,6 +69,8 @@ function AddBook() {
             setAuthor("")
             setBookCountAvailable(null)
             setLanguage("")
+            setdescription("")
+            setphotourl("")
             setPublisher("")
             setSelectedCategories([])
             alert("Book Added Successfully 🎉")
@@ -100,6 +108,12 @@ function AddBook() {
 
                 <label className="addbook-form-label" htmlFor="language">Language</label><br />
                 <input className="addbook-form-input" type="text" name="language" value={language} onChange={(e) => { setLanguage(e.target.value) }}></input><br />
+
+                <label className="addbook-form-label" htmlFor="description">Description</label><br />
+                <input className="addbook-form-input" type="text" name="description" value={description} onChange={(e) => { setdescription(e.target.value) }}></input><br />
+
+                <label className="addbook-form-label" htmlFor="photourl">Photourl</label><br />
+                <input className="addbook-form-input" type="text" name="photourl" value={photourl} onChange={(e) => { setphotourl(e.target.value) }}></input><br />
 
                 <label className="addbook-form-label" htmlFor="publisher">Publisher</label><br />
                 <input className="addbook-form-input" type="text" name="publisher" value={publisher} onChange={(e) => { setPublisher(e.target.value) }}></input><br />

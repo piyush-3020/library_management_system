@@ -1,11 +1,21 @@
 import React from "react";
 import "./BookCard.css"; // Create a separate CSS if needed
+import { useNavigate } from "react-router-dom";
+
 
 function BookCard({ book }) {
+  console.log(book);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/book/${book._id}`);
+  };
+
   return (
-    <div className="book-card">
-      <img
-        src={book.coverImage}
+    <div className="book-card" onClick={handleClick}>
+      <img id="bookimg" 
+        src={book.photourl}
         alt={book.title || "Book cover"}
         onError={(e) => {
           e.target.onerror = null;
@@ -13,16 +23,16 @@ function BookCard({ book }) {
         }}
       />
 
-      <p className="bookcard-title">{book.title}</p>
+      <p className="bookcard-title">{book.bookName}</p>
       <p className="bookcard-author">By {book.author}</p>
       <div className="bookcard-category">
-        <p>{book.category}</p>
+        <p>{book.categories[0].categoryName}</p>
       </div>
       <div className="bookcard-rating">
-        <p>⭐ {book.rating}</p>
+        <p>⭐ 4.6</p>
       </div>
       <div className="bookcard-year">
-        <p>{book.publishedYear}</p>
+        <p>{book.bookCountAvailable}</p>
       </div>
       <div className="bookcard-description">
         <p>{book.description}</p>

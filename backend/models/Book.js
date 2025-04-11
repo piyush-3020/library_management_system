@@ -17,6 +17,12 @@ const BookSchema = new mongoose.Schema({
         type:String,
         default:""
     },
+    description:{
+        type:String, 
+    },
+    photourl:{
+        type:String,
+    },
     publisher:{
         type:String,
         default:""

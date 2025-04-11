@@ -7,7 +7,7 @@ const router = express.Router()
 /* Get all books in the db */
 router.get("/allbooks", async (req, res) => {
     try {
-        const books = await Book.find({}).populate("transactions").sort({ _id: -1 })
+        const books = await Book.find({}).populate("transactions").populate("categories").sort({ _id: -1 })
         res.status(200).json(books)
     }
     catch (err) {
@@ -18,7 +18,7 @@ router.get("/allbooks", async (req, res) => {
 /* Get Book by book Id */
 router.get("/getbook/:id", async (req, res) => {
     try {
-        const book = await Book.findById(req.params.id).populate("transactions")
+        const book = await Book.findById(req.params.id).populate("categories").populate("transactions")
         res.status(200).json(book)
     }
     catch {
@@ -40,6 +40,7 @@ router.get("/", async (req, res) => {
 
 /* Adding book */
 router.post("/addbook", async (req, res) => {
+  
     if (req.body.isAdmin) {
         try {
             const newbook = await new Book({
@@ -48,10 +49,13 @@ router.post("/addbook", async (req, res) => {
                 author: req.body.author,
                 bookCountAvailable: req.body.bookCountAvailable,
                 language: req.body.language,
+                description:req.body.description,
+                photourl:req.body.photourl,
                 publisher: req.body.publisher,
                 bookStatus: req.body.bookSatus,
                 categories: req.body.categories
             })
+            
             const book = await newbook.save()
             await BookCategory.updateMany({ '_id': book.categories }, { $push: { books: book._id } });
             res.status(200).json(book)

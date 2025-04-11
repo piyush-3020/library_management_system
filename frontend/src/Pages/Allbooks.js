@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Allbooks.css";
-import booksData from '../data/bookData'; // assuming booksData.js is in same folder
+import { fetchAllBooks } from "../data/fetchallbooks.js";
 import BookCard from "../Components/BookCard";
 
 function Allbooks() {
+
+
+  const [booksData, setBooks] = useState([]);
+
+  useEffect(() => {
+    const getBooks = async () => {
+      const data = await fetchAllBooks();
+      setBooks(data);
+    };
+    getBooks();
+  }, []);
+
   return (
     <div className="books-page">
       <div className="books">
