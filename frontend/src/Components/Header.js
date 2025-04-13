@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
-import MenuIcon from '@material-ui/icons/Menu';
-import ClearIcon from '@material-ui/icons/Clear';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
+import MenuIcon from "@material-ui/icons/Menu";
+import ClearIcon from "@material-ui/icons/Clear";
 
 function Header({ onSearch }) {
   const [menutoggle, setMenutoggle] = useState(false);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   const toggle = () => setMenutoggle(!menutoggle);
   const closeMenu = () => setMenutoggle(false);
@@ -19,31 +19,30 @@ function Header({ onSearch }) {
   return (
     <div className="header">
       <div className="logo-nav">
-        <Link to='/'>LIBRARY</Link>
-        <li className="option" onClick={closeMenu}>
-        <Link to='/roadmap'>Roadmap</Link>
-       </li>
-
+        <Link to="/" className="logo">
+          LIBRARY
+        </Link>
+        <ul className="nav-left">
+          <li className="left-option">
+            <Link to="/roadmap">Roadmap</Link>
+          </li>
+          <li className="left-option">
+            <Link to="/recommendations">Recommendations</Link>
+          </li>
+        </ul>
       </div>
 
-      
-      <div className='nav-right'>
-        <input
-          className='search-input'
-          type='text'
-          placeholder='Search a Book'
-          value={search}
-          onChange={handleSearch}
-        />
+      <div className="nav-right">
+        
         <ul className={menutoggle ? "nav-options active" : "nav-options"}>
           <li className="option" onClick={closeMenu}>
-            <Link to='/'>Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li className="option" onClick={closeMenu}>
-            <Link to='/books'>Books</Link>
+            <Link to="/books">Books</Link>
           </li>
           <li className="option" onClick={closeMenu}>
-            <Link to='/signin'>SignIn</Link>
+            <Link to="/signin">SignIn</Link>
           </li>
         </ul>
       </div>

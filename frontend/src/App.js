@@ -11,9 +11,11 @@ import Header from './Components/Header';
 import Roadmap from "./Components/Roadmap.js"; 
 import RoadmapProgress from './Components/RoadmapProgress.js';
 import { AuthContext } from "./Context/AuthContext";
+import RecommendationPage from "./Components/RecommendationPage.js";
 
 function App() {
   const { user } = useContext(AuthContext);
+  console.log(user)
 
   return (
     <Router>
@@ -49,6 +51,7 @@ function App() {
           <Route path="/books" element={<Allbooks />} />
           <Route path="/book/:id" element={<BookInfo />} />
           <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/recommendations" element={<RecommendationPage />} />
           <Route path="/myroadmap" element={<RoadmapProgress />}/>
         </Routes>
       </div>
