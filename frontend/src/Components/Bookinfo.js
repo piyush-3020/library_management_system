@@ -15,6 +15,7 @@ const BookInfo = () => {
         try {
           const response = await fetch(API_URL + `api/books/getbook/${id}`);
           const data = await response.json();
+          console.log(data);
           setBook(data);
         } catch (err) {
           console.error("Error fetching book:", err);
@@ -39,10 +40,10 @@ const BookInfo = () => {
 
         <div className="issued-section">
           <strong>Issued To:</strong>
-          {book?.issuedTo?.length > 0 ? (
+          {book?.transactions?.length > 0 ? (
             <ul className="issued-list">
-              {book.issuedTo.map((user, index) => (
-                <li key={index}>{user}</li>
+              {book?.transactions?.map((user, index) => (
+                <li key={index}>{user?.borrowerName}</li>
               ))}
             </ul>
           ) : (

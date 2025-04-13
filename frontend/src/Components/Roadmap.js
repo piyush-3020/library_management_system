@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Roadmap() {
   const [year, setYear] = useState('');
-  const [stream, setStream] = useState('');
+  
   const [interest, setInterest] = useState('');
   const [selectedRoadmap, setSelectedRoadmap] = useState(null);
 
@@ -14,13 +14,15 @@ function Roadmap() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const selectedStream = stream.toLowerCase();
+    const selectedyear = year.toLowerCase();
     const selectedInterest = interest.toLowerCase();
+
+   console.log(selectedyear,selectedInterest)
 
     // Find the roadmap from allRoadmaps based on interest or stream
     const selectedRoadmap = roadmapData.find(
       (roadmap) =>
-        roadmap?.stream?.toLowerCase() === selectedStream ||
+        roadmap?.year?.toLowerCase() === selectedyear &&
         roadmap?.interest?.toLowerCase() === selectedInterest
     );
 
@@ -39,21 +41,12 @@ function Roadmap() {
         <label>Year:</label>
         <select value={year} onChange={(e) => setYear(e.target.value)} required>
           <option value="">Select Year</option>
-          <option value="1st">1st Year</option>
-          <option value="2nd">2nd Year</option>
-          <option value="3rd">3rd Year</option>
-          <option value="4th">4th Year</option>
+          <option value="1st Year">1st Year</option>
+          <option value="2nd Year">2nd Year</option>
+          <option value="3rd Year">3rd Year</option>
+          <option value="4th Year">4th Year</option>
         </select>
 
-        <label>Stream:</label>
-        <select value={stream} onChange={(e) => setStream(e.target.value)} required>
-          <option value="">Select Stream</option>
-          <option value="CSE">CSE</option>
-          <option value="ECE">ECE</option>
-          <option value="ME">ME</option>
-          <option value="EEE">EEE</option>
-          <option value="Civil">Civil</option>
-        </select>
 
         <label>Interest:</label>
         <select value={interest} onChange={(e) => setInterest(e.target.value)} required>

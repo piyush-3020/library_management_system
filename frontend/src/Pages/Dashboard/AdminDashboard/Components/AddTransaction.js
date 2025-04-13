@@ -41,7 +41,7 @@ function AddTransaction() {
             const borrower_details = await axios.get(API_URL + "api/users/getuser/" + borrowerId)
             const bookinfo = await fetch(API_URL + `api/books/getbook/${bookId}`);
             const book_details=await bookinfo.json();
-            console.log("if ",book_details)
+            console.log("if ",borrower_details.data.userFullName)
             
             
             
@@ -50,7 +50,7 @@ function AddTransaction() {
                 const transactionData = {
                     bookId: bookId,
                     borrowerId: borrowerId,
-                    borrowerName: borrower_details?.transactions,
+                    borrowerName: borrower_details?.data?.userFullName,
                     bookName: book_details.bookName,
                     transactionType: transactionType,
                     fromDate: fromDateString,
@@ -58,6 +58,7 @@ function AddTransaction() {
                     isAdmin: user.isAdmin
                 }
                 try {
+                    
                     const response = await axios.post(API_URL + "api/transactions/add-transaction", transactionData)
                     if (recentTransactions.length >= 5) {
                         (recentTransactions.splice(-1))
@@ -76,6 +77,7 @@ function AddTransaction() {
                     setBorrowerId("")
                     setBookId("")
                     setTransactionType("")
+                    setBorrowerDetails("");
                     setFromDate(null)
                     setToDate(null)
                     setFromDateString(null)
@@ -102,6 +104,7 @@ function AddTransaction() {
         const getTransactions = async () => {
             try {
                 const response = await axios.get(API_URL + "api/transactions/all-transactions")
+                console.log("trans",response);
                 setRecentTransactions(response.data.slice(0, 5))
             }
             catch (err) {
