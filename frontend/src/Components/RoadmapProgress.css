@@ -1,0 +1,160 @@
+/* Full page layout */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    
+  }
+  
+  .roadmap-progress-container {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 30px;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    overflow:hidden ;
+    scrollbar-width: none;
+  }
+  
+  .roadmap-title {
+    font-size: 2.8rem;
+    color: #333;
+    
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .roadmap-description {
+    font-size: 1.3rem;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  /* Progress bar styling */
+  .progress-bar-container {
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    height: 12px;
+    margin-top: 10px;
+    margin-bottom: 30px;  /* Increased gap */
+    overflow: hidden;
+  }
+  
+  .progress-bar-fill {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 25px;
+  }
+  
+  .progress-percent {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;  /* Increased gap */
+  }
+  
+  /* Section title for books/courses */
+  .section h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 40px;  /* Increased margin */
+    text-transform: uppercase;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Task list */
+  .task-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  
+  .task-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 50px;  /* Increased gap */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .task-item:hover {
+    background-color: #f1f1f1;
+    border-color: #007bff;
+  }
+  
+  .task-item input {
+    margin-right: 20px;
+    accent-color: #007bff;
+    transform: scale(1.2);
+  }
+  
+  /* Styling for completed tasks */
+  .task-item.completed {
+    background-color: #dff0d8;
+    border-color: #4caf50;
+    text-decoration: line-through;
+    color: #999;
+  }
+  
+  .section {
+    margin-bottom: 100px;  /* Increased gap between sections */
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .roadmap-progress-container {
+      padding: 20px;
+      width: 100%;
+      margin: 20px;
+    }
+  
+    .roadmap-title {
+      font-size: 2.4rem;
+    }
+  
+    .progress-percent {
+      font-size: 1.6rem;
+    }
+  
+    .task-item {
+      font-size: 1.1rem;
+      padding: 12px 18px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .roadmap-title {
+      font-size: 2rem;
+    }
+  
+    .progress-percent {
+      font-size: 1.4rem;
+    }
+  
+    .task-item {
+      font-size: 1rem;
+      padding: 10px 15px;
+    }
+  }
+  

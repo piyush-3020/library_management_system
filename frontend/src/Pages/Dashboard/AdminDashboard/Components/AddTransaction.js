@@ -39,15 +39,19 @@ function AddTransaction() {
         setIsLoading(true)
         if (bookId !== "" && borrowerId !== "" && transactionType !== "" && fromDate !== null && toDate !== null) {
             const borrower_details = await axios.get(API_URL + "api/users/getuser/" + borrowerId)
-            const book_details = await axios.get(API_URL + "api/books/getbook/" + bookId)
+            const bookinfo = await fetch(API_URL + `api/books/getbook/${bookId}`);
+            const book_details=await bookinfo.json();
+            console.log("if ",book_details)
+            
+            
             
             /* Checking weather the book is available or not */
-            if ((book_details.data.bookCountAvailable > 0 && (transactionType === "Issued" || transactionType === "Reserved")) || (book_details.data.bookCountAvailable === 0 && transactionType === "Reserved")) {
+            if ((book_details?.bookCountAvailable > 0 && (transactionType === "Issued" || transactionType === "Reserved")) || (book_details.bookCountAvailable === 0 && transactionType === "Reserved")) {
                 const transactionData = {
                     bookId: bookId,
                     borrowerId: borrowerId,
-                    borrowerName: borrower_details.data.userFullName,
-                    bookName: book_details.data.bookName,
+                    borrowerName: borrower_details?.transactions,
+                    bookName: book_details.bookName,
                     transactionType: transactionType,
                     fromDate: fromDateString,
                     toDate: toDateString,
@@ -65,7 +69,7 @@ function AddTransaction() {
 
                     await axios.put(API_URL+"api/books/updatebook/"+bookId,{
                         isAdmin:user.isAdmin,
-                        bookCountAvailable:book_details.data.bookCountAvailable - 1
+                        bookCountAvailable:book_details.bookCountAvailable - 1
                     })
 
                     setRecentTransactions([response.data, ...recentTransactions])
@@ -231,12 +235,7 @@ function AddTransaction() {
                         onChange={(event, data) => setBookId(data.value)}
                     />
                 </div>
-                <table className="admindashboard-table shortinfo-table" style={bookId === "" ? { display: "none" } : {}}>
-                    <tr>
-                        <th>Available Coipes</th>
-                        <th>Reserved</th>
-                    </tr>
-                </table>
+               
 
                 <label className="transaction-form-label" htmlFor="transactionType">Transaction Type<span className="required-field">*</span></label><br />
                 <div className='semanticdropdown'>

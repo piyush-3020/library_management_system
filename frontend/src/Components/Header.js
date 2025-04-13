@@ -20,7 +20,13 @@ function Header({ onSearch }) {
     <div className="header">
       <div className="logo-nav">
         <Link to='/'>LIBRARY</Link>
+        <li className="option" onClick={closeMenu}>
+        <Link to='/roadmap'>Roadmap</Link>
+       </li>
+
       </div>
+
+      
       <div className='nav-right'>
         <input
           className='search-input'

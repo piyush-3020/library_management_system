@@ -34,7 +34,7 @@ const BookInfo = () => {
         <p className="book-author"><strong>Author:</strong> {book.author}</p>
         <p className="book-info"><strong>Publisher:</strong> {book.publisher}</p>
         <p className="book-info"><strong>Language:</strong> {book.language}</p>
-        <p className="book-info"><strong>Genre:</strong> {book.categories[0].categoryName}</p>
+        <p className="book-info"><strong>Genre:</strong> {book?.categories[0]?.categoryName}</p>
         <p className="book-info"><strong>Copies Available:</strong> {book.bookCountAvailable}</p>
 
         <div className="issued-section">

@@ -8,6 +8,8 @@ import AdminDashboard from './Pages/Dashboard/AdminDashboard/AdminDashboard';
 import Allbooks from './Pages/Allbooks';
 import BookInfo from './Components/Bookinfo';
 import Header from './Components/Header';
+import Roadmap from "./Components/Roadmap.js"; 
+import RoadmapProgress from './Components/RoadmapProgress.js';
 import { AuthContext } from "./Context/AuthContext";
 
 function App() {
@@ -46,6 +48,8 @@ function App() {
 
           <Route path="/books" element={<Allbooks />} />
           <Route path="/book/:id" element={<BookInfo />} />
+          <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/myroadmap" element={<RoadmapProgress />}/>
         </Routes>
       </div>
     </Router>

@@ -26,7 +26,7 @@ function BookCard({ book }) {
       <p className="bookcard-title">{book.bookName}</p>
       <p className="bookcard-author">By {book.author}</p>
       <div className="bookcard-category">
-        <p>{book.categories[0].categoryName}</p>
+        <p>{book?.categories[0]?.categoryName}</p>
       </div>
       <div className="bookcard-rating">
         <p>⭐ 4.6</p>
@@ -34,9 +34,7 @@ function BookCard({ book }) {
       <div className="bookcard-year">
         <p>{book.bookCountAvailable}</p>
       </div>
-      <div className="bookcard-description">
-        <p>{book.description}</p>
-      </div>
+     
     </div>
   );
 }
