@@ -40,6 +40,17 @@ router.get("/all-transactions", async (req, res) => {
     }
 })
 
+router.get("/booknamebytransactions/:id", async (req, res) => {
+    try {
+        const transactionsid = req.params.id
+        const bookname=await BookTransaction.findById({_id:transactionsid})
+        res.status(200).json(bookname.bookName)
+    }
+    catch (err) {
+        return res.status(504).json(err)
+    }
+})
+
 router.put("/update-transaction/:id", async (req, res) => {
     try {
         if (req.body.isAdmin) {
