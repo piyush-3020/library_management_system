@@ -12,21 +12,24 @@ function Header({ onSearch }) {
   const toggle = () => setMenutoggle(!menutoggle);
   const closeMenu = () => setMenutoggle(false);
 
-
   return (
     <div className="header">
       <div className="logo-nav">
         <Link to="/" className="logo">
           LIBRARY
         </Link>
-        <ul className="nav-left">
-          <li className="left-option">
-            <Link to="/roadmap">Roadmap</Link>
-          </li>
-          <li className="left-option">
-            <Link to="/recommendations">Recommendations</Link>
-          </li>
-        </ul>
+
+        {/* Show Roadmap and Recommendations only for students */}
+        {user?.isAdmin === false && (
+          <ul className="nav-left">
+            <li className="left-option">
+              <Link to="/roadmap">Roadmap</Link>
+            </li>
+            <li className="left-option">
+              <Link to="/recommendations">Recommendations</Link>
+            </li>
+          </ul>
+        )}
       </div>
 
       <div className="nav-right">
@@ -47,7 +50,6 @@ function Header({ onSearch }) {
           </li>
         </ul>
       </div>
-     
     </div>
   );
 }

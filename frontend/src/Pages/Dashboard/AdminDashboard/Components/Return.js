@@ -138,6 +138,7 @@ function Return() {
       <div className="semanticdropdown returnbook-dropdown">
         <Dropdown
           placeholder="Select Member"
+          style={{color: "black"}}
           fluid
           search
           selection
@@ -188,7 +189,7 @@ function Return() {
                       ) * 10}
                 </td>
                 <td>
-                  <button
+                  <button style={{backgroundColor:"lightgreen", borderRadius:"6px"}}
                     onClick={() => {
                       returnBook(
                         data._id,
@@ -237,7 +238,7 @@ function Return() {
                 <td>{data.fromDate}</td>
                 <td>{data.toDate}</td>
                 <td>
-                  <button
+                  <button  style={{backgroundColor:"lightgreen", borderRadius:"6px"}}
                     onClick={() => {
                       convertToIssue(data._id);
                     }}
