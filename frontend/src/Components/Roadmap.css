@@ -1,86 +1,156 @@
+/* Main container */
+.mainn {
+  height: 45.25vw;
+  width: 100%;
+  background: #b52647;
+  padding: 95px;
+  background: linear-gradient(
+    90deg,
+    rgba(181, 38, 71, 1) 0%,
+    rgba(117, 38, 133, 1) 50%,
+    rgba(76, 87, 120, 1) 100%
+  );
+
+}
+
 .roadmap-page {
-    max-width: 700px;
-    margin: 0px auto;
-    padding: 30px;
-    padding-top: 100px;
-    background-color: #fefefe;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-   
+  max-width: 650px;
+  padding: 50px;
+  margin: 0 auto;
+  background-color: #decece;
+  border-radius: 20px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+  font-family: "Roboto", sans-serif;
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+}
+
+/* Heading */
+.roadmap-page h2 {
+  font-size: 2.5rem;
+  color: #1e2a38;
+  font-weight: 700;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* Bottom border for header */
+.roadmap-page h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 5px;
+  background-color: #3f1bb3;
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+/* Form container */
+.roadmap-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+/* Labels */
+.roadmap-form label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4a4a4a;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+/* Select and Button styling */
+.roadmap-form select,
+.roadmap-form button {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 15px;
+  border: 1px solid #e0e0e0;
+  background-color: #f8f8f8;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Select and button focus */
+.roadmap-form select:focus,
+.roadmap-form button:hover {
+  border-color: #542282;
+  box-shadow: 0 0 15px rgba(255, 111, 97, 0.5);
+  transform: scale(1.05);
+}
+
+/* Button style */
+.roadmap-form button {
+  background-color: #836adb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+/* Button hover state */
+.roadmap-form button:hover {
+  background-color: #4a3498;
+}
+
+/* Disabled state */
+.roadmap-form button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Roadmap result */
+.roadmap-result {
+  margin-top: 40px;
+  background-color: #f1f8ff;
+  padding: 30px;
+  border-left: 6px solid #ff6f61;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Heading in result */
+.roadmap-result h3 {
+  color: #ff6f61;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Subheading in result */
+.roadmap-result h4 {
+  color: #333;
+  font-size: 1.3rem;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+/* List styling */
+.roadmap-result ul {
+  list-style: inside circle;
+  margin-top: 20px;
+  padding-left: 15px;
+}
+
+.roadmap-result li {
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .roadmap-page {
+    padding: 30px 20px;
   }
-  
-  .roadmap-page h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-  }
-  
-  .roadmap-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .roadmap-form label {
-    font-weight: bold;
-    color: #444;
-  }
-  
+
   .roadmap-form select,
   .roadmap-form button {
-    padding: 10px 15px;
     font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    outline: none;
-    transition: all 0.2s ease;
   }
-  
-  .roadmap-form select:focus,
-  .roadmap-form button:hover {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
-  }
-  
-  .roadmap-form button {
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .roadmap-form button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .roadmap-result {
-    margin-top: 30px;
-    background-color: #f4f8ff;
-    padding: 20px;
-    border-left: 5px solid #007bff;
-    border-radius: 10px;
-  }
-  
-  .roadmap-result h3 {
-    color: #007bff;
-    margin-bottom: 10px;
-  }
-  
-  .roadmap-result h4 {
-    margin-top: 20px;
-    color: #333;
-  }
-  
-  .roadmap-result ul {
-    list-style: inside square;
-    margin: 10px 0 0 10px;
-    padding: 0;
-  }
-  
-  .roadmap-result li {
-    margin-bottom: 6px;
-  }
-  
+}

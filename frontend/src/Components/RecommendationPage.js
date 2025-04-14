@@ -4,7 +4,7 @@ import axios from "axios";
 import { AuthContext } from "../Context/AuthContext";
 
 const RecommendationPage = () => {
-    const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [recommendedBooks, setRecommendedBooks] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -13,12 +13,12 @@ const RecommendationPage = () => {
       try {
         // Step 1: Extract the 0th book ID from the prevTransactions array
         const firstBookId = user.prevTransactions[0];
-    
-        
-        // Step 2: Fetch the book details using /getbook/:id endpoint
-        const bookRes = await axios.get(`http://localhost:8000/api/transactions/booknamebytransactions/${firstBookId}`);
 
-        
+        // Step 2: Fetch the book details using /getbook/:id endpoint
+        const bookRes = await axios.get(
+          `http://localhost:8000/api/transactions/booknamebytransactions/${firstBookId}`
+        );
+
         // Step 3: Get the book name from the response (assuming the response contains 'bookName')
         const bookName = bookRes.data; // Change this according to your API response structure
 
@@ -27,13 +27,13 @@ const RecommendationPage = () => {
           "http://127.0.0.1:5000/recommend", // Python recommendation API endpoint
           { read_books: [bookName] } // Send the book name in the body
         );
-        const cleanedData = pythonRes.data.replace(/NaN/g, 'null');
-        const maindata=await JSON.parse(cleanedData);
+        const cleanedData = pythonRes.data.replace(/NaN/g, "null");
+        const maindata = await JSON.parse(cleanedData);
         //const maindata=await JSON.parse(data)
-        
+
         // Step 5: Set the recommended books from the response
-        setRecommendedBooks(maindata); 
-        console.log(pythonRes,maindata)
+        setRecommendedBooks(maindata);
+        console.log(pythonRes, maindata);
         // Assuming recommendations are in the response
         setLoading(false);
       } catch (error) {
@@ -57,7 +57,15 @@ const RecommendationPage = () => {
         <div className="books-grid">
           {recommendedBooks?.map((book) => (
             <div key={book.isbn13} className="book-card">
-              <img src={book.thumbnail} alt={book.title} className="book-imager" />
+              <img
+                src={
+                  book.thumbnail ||
+                  "https://st2.depositphotos.com/2815589/5747/v/450/depositphotos_57477791-stock-illustration-loading-bar-with-a-doodle.jpg"
+                }
+                alt={book.title}
+                className="book-imager"
+              />
+
               <h3 className="book-title">{book.title}</h3>
               <p className="book-author">by {book.authors}</p>
               <p className="book-category">{book.categories}</p>
