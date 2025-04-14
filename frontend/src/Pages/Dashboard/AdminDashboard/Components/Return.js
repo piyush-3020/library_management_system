@@ -68,7 +68,7 @@ function Return() {
       await axios.put(
         API_URL + "api/transactions/update-transaction/" + transactionId,
         {
-          isAdmin: user.isAdmin,
+          isAdmin: (!user.isAdmin),
           transactionStatus: "Completed",
           returnDate: moment(new Date()).format("MM/DD/YYYY"),
         }
