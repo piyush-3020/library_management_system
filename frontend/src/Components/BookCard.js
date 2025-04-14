@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function BookCard({ book }) {
-  console.log(book);
+  
 
   const navigate = useNavigate();
 

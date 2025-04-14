@@ -47,13 +47,7 @@ function Header({ onSearch }) {
           </li>
         </ul>
       </div>
-      <div className="mobile-menu" onClick={toggle}>
-        {menutoggle ? (
-          <ClearIcon className="menu-icon" style={{ fontSize: 40 }} />
-        ) : (
-          <MenuIcon className="menu-icon" style={{ fontSize: 40 }} />
-        )}
-      </div>
+     
     </div>
   );
 }
