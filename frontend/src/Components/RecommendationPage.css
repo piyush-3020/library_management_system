@@ -34,14 +34,15 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     transition: 0.3s ease;
     text-align: center;
+    overflow: hidden;
   }
   
   .book-card:hover {
     transform: translateY(-5px);
   }
   
-  .book-image {
-    width: 100%;
+  .book-card img {
+    width: 250px;
     height: 300px;
     object-fit: cover;
     border-radius: 8px;

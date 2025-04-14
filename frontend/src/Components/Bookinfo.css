@@ -5,9 +5,11 @@ body {
     min-height: 100vh;
   }
   
-  /* Main book container */
   .book-container {
     display: flex;
+    flex-direction: row;      /* 🟢 Ensure side-by-side layout */
+    align-items: flex-start;  /* Align top edges */
+    justify-content: space-between;
     gap: 40px;
     padding: 100px 60px 60px;
     max-width: 1200px;
@@ -17,31 +19,27 @@ body {
     border-radius: 20px;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
     min-height: 80vh;
-    align-items: flex-start;
     transition: all 0.3s ease;
   }
   
-  /* Book image styling */
   .book-image {
-    width: 320px;
+    width: 420px !important; /* 🛠 Force the width */
+    max-width: 420px;
     height: auto;
-    border-radius: 16px;
     object-fit: cover;
+    border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .book-image:hover {
-    transform: scale(1.03);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-  }
   
-  /* Book details text */
   .book-details {
-    flex: 1;
+    flex: 1;               /* 🟢 Take remaining space */
     padding-right: 20px;
+    min-width: 0;          /* 🟢 Prevent overflow issues */
   }
   
+
   .book-title {
     font-size: 38px;
     margin-bottom: 20px;
@@ -99,3 +97,9 @@ body {
     margin-bottom: 14px;
     color: #334155;
   }
+
+  .book-container img {
+    width: 100%;
+    height: 550px;
+  }
+  

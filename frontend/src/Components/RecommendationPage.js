@@ -57,7 +57,7 @@ const RecommendationPage = () => {
         <div className="books-grid">
           {recommendedBooks?.map((book) => (
             <div key={book.isbn13} className="book-card">
-              <img src={book.thumbnail} alt={book.title} className="book-image" />
+              <img src={book.thumbnail} alt={book.title} className="book-imager" />
               <h3 className="book-title">{book.title}</h3>
               <p className="book-author">by {book.authors}</p>
               <p className="book-category">{book.categories}</p>
